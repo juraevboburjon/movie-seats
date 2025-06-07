@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import authRoute from "./routes/auth.route.js";
+import filmRoute from "./routes/film.route.js";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(cors());
 const PORT = process.env.PORT || 3000;
 
 app.use("/api/auth", authRoute);
+app.use("/api/film", filmRoute);
 
 const startapp = async () => {
   try {
