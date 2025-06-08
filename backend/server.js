@@ -4,7 +4,9 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import authRoute from "./routes/auth.route.js";
-import filmRoute from "./routes/film.route.js";
+import movieRoute from "./routes/movie.route.js";
+import sessionRoute from "./routes/session.route.js";
+import ticketRoute from "./routes/ticket.route.js";
 
 dotenv.config();
 
@@ -15,7 +17,9 @@ app.use(cors());
 const PORT = process.env.PORT || 3000;
 
 app.use("/api/auth", authRoute);
-app.use("/api/film", filmRoute);
+app.use("/api/movie", movieRoute);
+app.use("/api/session", sessionRoute);
+app.use("/api/ticket", ticketRoute);
 
 const startapp = async () => {
   try {
