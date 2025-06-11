@@ -14,7 +14,9 @@ class AuthController {
     try {
       const { token, userName } = await authService.login(req.body);
       console.log(req.body);
-      res.status(200).json({ message: "User loggined succesfully" });
+      res
+        .status(200)
+        .json({ message: "User loggined succesfully", token, userName });
     } catch (error) {
       res.status(401).json({ message: error.message });
     }
