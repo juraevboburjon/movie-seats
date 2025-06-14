@@ -4,15 +4,24 @@
   "description": "Fullstack project for buy movie tickets",
   "license": "ISC",
   "author": "Juraev Mukhammadbobur",
-  "type": "commonjs",
+  "type": "module",
   "main": "server,js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
-    "cross": "^1.0.0",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^1.21.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongoose": "^8.15.1"
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.1",
+    "multer": "^2.0.1",
+    "multer-storage-cloudinary": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
