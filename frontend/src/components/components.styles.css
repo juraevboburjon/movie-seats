@@ -1,0 +1,32 @@
+/* Event Banner styles */
+.slick-dots {
+  position: absolute !important;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  color: #fff;
+  opacity: 100;
+  padding-bottom: 10px;
+}
+
+.slick-dots li button::before {
+  font-size: 10px;
+  opacity: 50%;
+  color: #fff;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 100%;
+  color: #fff;
+}
+
+.slick-arrow {
+  z-index: 20;
+}
+
+.slick-slider,
+.slick-list,
+.slick-track {
+  position: relative;
+}
