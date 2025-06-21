@@ -10,6 +10,10 @@ import Events from "./pages/Events";
 import Booking from "./pages/Booking";
 import Movies from "./pages/Movies";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
+import CreateMovie from "./pages/CreateMovie";
+import AdminAuth from "./service/AdminAuth";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const routes = createBrowserRouter(
@@ -20,6 +24,16 @@ function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/movie" element={<Movies />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
+        <Route
+          path="/createmovie"
+          element={
+            <AdminAuth>
+              <CreateMovie />
+            </AdminAuth>
+          }
+        />
       </>
     )
   );

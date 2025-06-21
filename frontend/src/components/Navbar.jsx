@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../service/AuthService";
 
 function Navbar() {
+  const { isLoggedIn, email, logout, role } = useAuth();
+
   return (
     <>
       <div className="flex justify-center bg-red-800">
@@ -15,12 +18,26 @@ function Navbar() {
             <Link to={"/booking"}>
               <p>예매</p>
             </Link>
+            {role === "admin" && (
+              <Link to={"/createmovie"}>
+                <p>add new film</p>
+              </Link>
+            )}
             <Link to={"/movie"}>
               <p>영화</p>
             </Link>
-            <Link to={"/login"}>
-              <p>로그인</p>
-            </Link>
+            {!isLoggedIn ? (
+              <Link to={"/login"}>
+                <p>로그인</p>
+              </Link>
+            ) : (
+              <>
+                <p>{email}</p>
+                <p className="cursor-pointer " onClick={logout}>
+                  logout
+                </p>
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -1,57 +1,32 @@
+import axios from "axios";
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const MovieTable = () => {
-  const movies = [
-    {
-      id: 1,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/MovieFile/MovieImg/202505/22541_201_1.jpg",
-    },
-    {
-      id: 2,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/MovieFile/MovieImg/202505/22541_201_1.jpg",
-    },
-    {
-      id: 3,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/MovieFile/MovieImg/202505/22541_201_1.jpg",
-    },
-    {
-      id: 4,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/MovieFile/MovieImg/202505/22541_201_1.jpg",
-    },
-    {
-      id: 5,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/MovieFile/MovieImg/202505/22541_201_1.jpg",
-    },
-    {
-      id: 6,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/MovieFile/MovieImg/202505/22541_201_1.jpg",
-    },
-    {
-      id: 7,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/MovieFile/MovieImg/202505/22541_201_1.jpg",
-    },
-    {
-      id: 8,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/MovieFile/MovieImg/202505/22541_201_1.jpg",
-    },
-  ];
+  const host = import.meta.env.VITE_BACKEND_HOST;
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`${host}/api/movie/allMovies`);
+        setMovies(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [host]);
   return (
     <div className="flex justify-center pt-5">
       <div className="container">
         <div className="grid grid-cols-5 w-[1280px] gap-x-17 gap-y-5">
           {movies.map((movie) => (
-            <div key={movie.id} className="w-50 h-80">
+            <div key={movie._id} className="w-50 h-80">
               <img
                 className="w-full h-70 rounded"
-                src={movie.img}
+                src={movie.posterUrl}
                 alt={movie.title}
               />
               <p>{movie.title}</p>

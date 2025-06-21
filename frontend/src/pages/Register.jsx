@@ -1,16 +1,16 @@
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import LoginForm from "../components/LoginForm";
+import RegisterForm from "../components/RegisterForm";
 import { useState } from "react";
-import { useAuth } from "../service/AuthService";
+import axios from "axios";
 
-function Login() {
-  const { login } = useAuth();
-  const host = import.meta.env.VITE_BACKEND_HOST;
+function Register() {
   const [formData, setFormData] = useState({
+    userName: "",
+    phoneNumber: "",
     email: "",
     password: "",
   });
+  const host = import.meta.env.VITE_BACKEND_HOST;
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -18,16 +18,13 @@ function Login() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-
     try {
-      const res = await axios.post(`${host}/api/auth/login`, formData);
-      if (res && res.data) {
-        login(formData.email, res.data.role, res.data.token);
-        navigate("/");
+      const res = await axios.post(`${host}/api/auth/register`, formData);
+      if (res) {
+        navigate("/login");
       }
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -41,12 +38,12 @@ function Login() {
               <Link to={"/"}>
                 <p className="text-2xl font-bold text-red-800">MovieSeats</p>
               </Link>
-              <p>로그인 페이즈</p>
+              <p>회원가입</p>
             </div>
-            <LoginForm
+            <RegisterForm
               formData={formData}
               handleChange={handleChange}
-              handleSubmit={handleSubmit}
+              handleRegister={handleRegister}
             />
           </div>
         </div>
@@ -55,4 +52,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
