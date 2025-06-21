@@ -43,7 +43,7 @@ class AuthService {
       expiresIn: "1h",
     });
 
-    return { token, userName: existingUser.userName };
+    return { token, userName: existingUser.userName, role: existingUser.role };
   }
 
   async logout() {
