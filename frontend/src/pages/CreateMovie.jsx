@@ -4,7 +4,9 @@ import Layout from "../components/Layout";
 function CreateMovie() {
   return (
     <Layout>
-      <CretaeMovieForm />
+      <div className="pt-5">
+        <CretaeMovieForm />
+      </div>
     </Layout>
   );
 }

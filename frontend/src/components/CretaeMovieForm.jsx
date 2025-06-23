@@ -27,10 +27,15 @@ function CretaeMovieForm() {
     formData.append("genre", JSON.stringify(genre));
     formData.append("posterUrl", posterUrl);
 
+    formData.append("duration", data.duration);
+    formData.append("releaseDate", data.releaseDate);
+
     try {
       const res = await axios.post(`${host}/api/movie/createMovie`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-        Authorization: `Bearer ${token}`,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       console.log("movie created succ", res);
@@ -42,6 +47,7 @@ function CretaeMovieForm() {
       console.error(error);
     }
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <div className="grid-rows-1 px-20 gap-5 md:grid grid-cols-2 w-full">
@@ -62,8 +68,22 @@ function CretaeMovieForm() {
         <div className="grid grid-rows-1 gap-4">
           <input
             type="text"
-            placeholder="Post title"
+            placeholder="Movie title"
             {...register("title", { required: "Title is required" })}
+            className="border p-2 rounded"
+          />
+          <input
+            type="number"
+            min="1"
+            placeholder="Movie duration"
+            {...register("duration", { required: "Title is required" })}
+            className="border p-2 rounded"
+          />
+
+          <input
+            type="date"
+            placeholder="Movie release date"
+            {...register("releaseDate", { required: "Title is required" })}
             className="border p-2 rounded"
           />
           <textarea
@@ -77,7 +97,7 @@ function CretaeMovieForm() {
             isMulti
             value={genre}
             onChange={(newGenre) => setGenre(newGenre)}
-            placeholder="Tags"
+            placeholder="Genre"
           />
           <button
             type="submit"

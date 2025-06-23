@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const MovieTable = () => {
   const host = import.meta.env.VITE_BACKEND_HOST;
@@ -23,14 +24,16 @@ const MovieTable = () => {
       <div className="container">
         <div className="grid grid-cols-5 w-[1280px] gap-x-17 gap-y-5">
           {movies.map((movie) => (
-            <div key={movie._id} className="w-50 h-80">
-              <img
-                className="w-full h-70 rounded"
-                src={movie.posterUrl}
-                alt={movie.title}
-              />
-              <p>{movie.title}</p>
-            </div>
+            <Link to={`/movie/${movie._id}`}>
+              <div key={movie._id} className="w-50 h-80">
+                <img
+                  className="w-full h-70 rounded"
+                  src={movie.posterUrl}
+                  alt={movie.title}
+                />
+                <p>{movie.title}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

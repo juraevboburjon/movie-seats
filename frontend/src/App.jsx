@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import CreateMovie from "./pages/CreateMovie";
 import AdminAuth from "./service/AdminAuth";
 import NotFound from "./pages/NotFound";
+import MoviePage from "./pages/MoviePage";
 
 function App() {
   const routes = createBrowserRouter(
@@ -25,6 +26,7 @@ function App() {
         <Route path="/movie" element={<Movies />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/createmovie"
