@@ -38,12 +38,21 @@ class AuthService {
     if (!isValidPassword) {
       throw new Error("Invalid password or email..!");
     }
+    const token = jwt.sign(
+      {
+        id: existingUser._id,
+        email: existingUser.email,
+        role: existingUser.role,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
 
-    const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    // const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET, {
+    //   expiresIn: "1h",
+    // });
 
-    return { token, userName: existingUser.userName };
+    return { token, userName: existingUser.userName, role: existingUser.role };
   }
 
   async logout() {
