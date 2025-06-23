@@ -1,6 +1,19 @@
 import movieService from "../service/movie.service.js";
 
 class MovieController {
+  async oneMovie(req, res) {
+    try {
+      const id = req.params.id;
+      const movie = await movieService.getOneMovie(id);
+      if (!movie) {
+        return res.status(404).json({ message: "Movie not found" });
+      }
+      res.status(200).json(movie);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
   async AllMovies(req, res) {
     try {
       const allMovies = await movieService.getAllMovies();
@@ -32,6 +45,15 @@ class MovieController {
       res.status(200).json(movie);
     } catch (error) {
       console.error("Error creating film:", error);
+      res.status(500).json({ message: error.message });
+    }
+  }
+  async deleteMovie(req, res) {
+    try {
+      const id = req.params.id;
+      const movie = await movieService.delete(id);
+      res.status(200).json(movie);
+    } catch (error) {
       res.status(500).json({ message: error.message });
     }
   }
