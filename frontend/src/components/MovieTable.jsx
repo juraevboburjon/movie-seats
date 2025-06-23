@@ -1,5 +1,4 @@
 import axios from "axios";
-import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -24,8 +23,8 @@ const MovieTable = () => {
       <div className="container">
         <div className="grid grid-cols-5 w-[1280px] gap-x-17 gap-y-5">
           {movies.map((movie) => (
-            <Link to={`/movie/${movie._id}`}>
-              <div key={movie._id} className="w-50 h-80">
+            <Link to={`/movie/${movie._id}`} key={movie._id}>
+              <div className="w-50 h-80">
                 <img
                   className="w-full h-70 rounded"
                   src={movie.posterUrl}

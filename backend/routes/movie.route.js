@@ -14,5 +14,7 @@ router.post(
   MovieController.createMovie
 );
 router.get("/allMovies", MovieController.AllMovies);
+router.get("/:id", MovieController.oneMovie);
+router.delete("/:id", authenticateJWT, isAdmin, MovieController.deleteMovie);
 
 export default router;
