@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import OneMovie from "../components/OneMovie";
 import { useAuth } from "../service/AuthService";
+import MovieTable from "../components/MovieTable";
 
 function MoviePage() {
   const host = import.meta.env.VITE_BACKEND_HOST;
@@ -44,8 +45,11 @@ function MoviePage() {
   }
   return (
     <Layout>
-      <div className="flex pt-5">
+      <div className="flex pt-9 justify-center">
         <OneMovie movie={movie} role={role} handleDelete={handleDelete} />
+      </div>
+      <div className="mt-20">
+        <MovieTable />
       </div>
     </Layout>
   );
