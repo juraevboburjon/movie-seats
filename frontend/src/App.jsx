@@ -15,6 +15,7 @@ import CreateMovie from "./pages/CreateMovie";
 import AdminAuth from "./service/AdminAuth";
 import NotFound from "./pages/NotFound";
 import MoviePage from "./pages/MoviePage";
+import CreateSession from "./pages/CreateSession";
 
 function App() {
   const routes = createBrowserRouter(
@@ -33,6 +34,14 @@ function App() {
           element={
             <AdminAuth>
               <CreateMovie />
+            </AdminAuth>
+          }
+        />
+        <Route
+          path="/createsession"
+          element={
+            <AdminAuth>
+              <CreateSession />
             </AdminAuth>
           }
         />

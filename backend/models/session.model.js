@@ -8,7 +8,7 @@ const sessionModel = new Schema({
   },
   cinemaHall: { type: String, required: true },
   startTime: { type: Date, required: true },
-  seats: { type: String, required: true },
+  seats: { type: Number, required: true, default: 40 },
 });
 
 export default model("Session", sessionModel);

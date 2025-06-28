@@ -19,9 +19,14 @@ function Navbar() {
               <p>예매</p>
             </Link>
             {role === "admin" && (
-              <Link to={"/createmovie"}>
-                <p>add new film</p>
-              </Link>
+              <>
+                <Link to={"/createmovie"}>
+                  <p>add new film</p>
+                </Link>
+                <Link to={"/createsession"}>
+                  <p>add new session</p>
+                </Link>
+              </>
             )}
             <Link to={"/movie"}>
               <p>영화</p>
