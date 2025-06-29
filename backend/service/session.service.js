@@ -10,6 +10,11 @@ class SessionService {
     const allSession = await sessionModel.find();
     return allSession;
   }
+
+  async getOne(id) {
+    const session = await sessionModel.findById(id).populate("movieId").exec();
+    return session;
+  }
 }
 
 export default new SessionService();
