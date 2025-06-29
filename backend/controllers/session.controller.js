@@ -26,6 +26,16 @@ class SessionController {
       res.status(500).json({ message: error.message });
     }
   }
+
+  async getOne(req, res) {
+    try {
+      const id = req.params.id;
+      const session = await sessionService.getOne(id);
+      res.status(200).json(session);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
 }
 
 export default new SessionController();
