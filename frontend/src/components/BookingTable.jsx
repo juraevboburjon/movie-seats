@@ -23,7 +23,7 @@ function BookingTable() {
     <div>
       {sessions.map((session, key) => (
         <div className="grid" key={key}>
-          <Link to={session._id}>
+          <Link to={`${session._id}`}>
             <div className="w-50">
               <p>{session.cinemaHall}</p>
             </div>
