@@ -12,7 +12,7 @@ class SessionService {
   }
 
   async getOne(id) {
-    const session = await sessionModel.findById(id).populate("movieId").exec();
+    const session = await sessionModel.findById(id).populate("movieId");
     return session;
   }
 }

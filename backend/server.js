@@ -7,7 +7,7 @@ import authRoute from "./routes/auth.route.js";
 import movieRoute from "./routes/movie.route.js";
 import sessionRoute from "./routes/session.route.js";
 import ticketRoute from "./routes/ticket.route.js";
-
+import seatsRoute from "./routes/seats.route.js";
 dotenv.config();
 
 const app = express();
@@ -19,6 +19,7 @@ const PORT = process.env.PORT || 3000;
 app.use("/api/auth", authRoute);
 app.use("/api/movie", movieRoute);
 app.use("/api/session", sessionRoute);
+app.use("/api/seats", seatsRoute);
 app.use("/api/ticket", ticketRoute);
 
 const startapp = async () => {

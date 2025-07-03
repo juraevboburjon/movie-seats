@@ -1,16 +1,36 @@
+import seatsModel from "../models/seats.model.js";
 import sessionService from "../service/session.service.js";
 
 class SessionController {
   async create(req, res) {
     try {
-      const { movieId, cinemaHall, startTime, seats } = req.body;
+      const { movieId, cinemaHall, startTime, seatsCount, rowsCount } =
+        req.body;
 
+      // Сначала создаём сессию
       const session = await sessionService.create({
         movieId,
         cinemaHall,
         startTime,
-        seats,
       });
+
+      // Генерируем места
+      const seats = [];
+      const rows = rowsCount || 5;
+      const cols = seatsCount || 8;
+
+      for (let row = 0; row < rows; row++) {
+        const rowLetter = String.fromCharCode(65 + row); // A, B, C, ...
+        for (let col = 1; col <= cols; col++) {
+          seats.push({
+            seatNumber: `${rowLetter}${col}`,
+            status: "available",
+            sessionId: session._id,
+          });
+        }
+      }
+      await seatsModel.insertMany(seats);
+
       res.status(200).json(session);
     } catch (error) {
       console.error("Error creating session:", error);

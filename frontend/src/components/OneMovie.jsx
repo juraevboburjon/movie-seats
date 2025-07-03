@@ -1,4 +1,5 @@
 import { FaClock, FaCalendarAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function OneMovie({ movie, role, handleDelete }) {
   return (
@@ -43,9 +44,11 @@ function OneMovie({ movie, role, handleDelete }) {
           </div>
 
           <div className="flex mt-8">
-            <p className="bg-red-800 text-white px-6 py-2 rounded-3xl text-2xl cursor-pointer">
-              예매하기
-            </p>
+            <Link>
+              <p className="bg-red-800 text-white px-6 py-2 rounded-3xl text-2xl cursor-pointer">
+                예매하기
+              </p>
+            </Link>
           </div>
 
           {role === "admin" && <p onClick={handleDelete}>delete</p>}

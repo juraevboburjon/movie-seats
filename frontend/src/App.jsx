@@ -16,7 +16,8 @@ import AdminAuth from "./service/AdminAuth";
 import NotFound from "./pages/NotFound";
 import MoviePage from "./pages/MoviePage";
 import CreateSession from "./pages/CreateSession";
-import OneSession from "./pages/OneSession";
+import OneSession from "./pages/Session";
+import SelectSeat from "./pages/SelectSeat";
 
 function App() {
   const routes = createBrowserRouter(
@@ -30,6 +31,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="/booking/:id" element={<OneSession />} />
+        <Route path="/booking/:sessionId/seats" element={<SelectSeat />} />
+
         <Route path="*" element={<NotFound />} />
         <Route
           path="/createmovie"
