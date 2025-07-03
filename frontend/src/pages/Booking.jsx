@@ -4,7 +4,9 @@ import BookingTable from "../components/BookingTable";
 function Booking() {
   return (
     <Layout>
-      <BookingTable />
+      <div className="flex justify-center">
+        <BookingTable />
+      </div>
     </Layout>
   );
 }

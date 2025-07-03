@@ -47,7 +47,9 @@ function OneSession({ session }) {
         </div>
         <div className="flex items-center gap-3">
           <IoLocation className="flex" />
-          <p className="font-bold">{session.cinemaHall}</p>
+          <p className="font-bold">
+            {session.city}, {session.cinemaHall}
+          </p>
         </div>
         <Link to={`/booking/${session._id}/seats`}>
           <button className="mt-6 bg-red-800 px-6 py-2 rounded-3xl cursor-pointer text-2xl text-white">

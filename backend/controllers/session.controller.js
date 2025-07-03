@@ -4,7 +4,7 @@ import sessionService from "../service/session.service.js";
 class SessionController {
   async create(req, res) {
     try {
-      const { movieId, cinemaHall, startTime, seatsCount, rowsCount } =
+      const { movieId, cinemaHall, startTime, seatsCount, rowsCount, city } =
         req.body;
 
       // Сначала создаём сессию
@@ -12,6 +12,7 @@ class SessionController {
         movieId,
         cinemaHall,
         startTime,
+        city,
       });
 
       // Генерируем места
@@ -26,6 +27,7 @@ class SessionController {
             seatNumber: `${rowLetter}${col}`,
             status: "available",
             sessionId: session._id,
+            city: session.city,
           });
         }
       }

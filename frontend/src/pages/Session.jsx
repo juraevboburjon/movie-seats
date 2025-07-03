@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import OneSession from "../components/OneSession";
+import BookingTable from "../components/BookingTable";
 
 function Session() {
   const { id } = useParams();
@@ -26,6 +27,9 @@ function Session() {
     <Layout>
       <div className="flex justify-center pt-9">
         <OneSession session={session} />
+      </div>
+      <div className="flex justify-center pt-9">
+        <BookingTable />
       </div>
     </Layout>
   );
