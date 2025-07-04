@@ -7,12 +7,14 @@ function CreateSessionForm() {
   const { token } = useAuth();
   const host = import.meta.env.VITE_BACKEND_HOST;
   const navigate = useNavigate();
+  const cities = ["Seoul", "Busan", "Deagu", "Deajon", "Kwangju"];
 
   const sessions = {
     movieId: "",
     cinemaHall: "",
     seats: "",
     startTime: "",
+    city: "",
   };
 
   const [session, setSession] = useState(sessions);
@@ -38,6 +40,7 @@ function CreateSessionForm() {
       console.error(error);
     }
   };
+  // console.log(typeof session.city);
 
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-4">
@@ -51,6 +54,20 @@ function CreateSessionForm() {
             placeholder="Movie title"
             className="border p-2 rounded"
           />
+          <select
+            id="city"
+            name="city"
+            onChange={inputHandle}
+            value={session.city}
+            className="border p-2 rounded"
+          >
+            <option value="">select city</option>
+            {cities.map((city) => (
+              <option key={city} value={city}>
+                {city}
+              </option>
+            ))}
+          </select>
           <input
             type="text"
             id="cinemaHall"
@@ -60,7 +77,6 @@ function CreateSessionForm() {
             placeholder="Cinema Hall"
             className="border p-2 rounded"
           />
-
           <input
             type="number"
             id="seats"
@@ -77,7 +93,6 @@ function CreateSessionForm() {
             placeholder="Session Time"
             className="border p-2 rounded"
           />
-
           <button
             type="submit"
             className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
