@@ -8,5 +8,11 @@ const router = express.Router();
 router.post("/create", authenticateJWT, isAdmin, sessionController.create);
 router.get("/all", sessionController.getAllSession);
 router.get("/:id", sessionController.getOne);
+router.delete(
+  "/:id",
+  authenticateJWT,
+  isAdmin,
+  sessionController.deleteSession
+);
 
 export default router;
