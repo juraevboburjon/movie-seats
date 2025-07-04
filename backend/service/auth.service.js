@@ -45,14 +45,19 @@ class AuthService {
         role: existingUser.role,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "10m" }
+      { expiresIn: "1h" }
     );
 
     // const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET, {
     //   expiresIn: "1h",
     // });
 
-    return { token, userName: existingUser.userName, role: existingUser.role };
+    return {
+      token,
+      userName: existingUser.userName,
+      role: existingUser.role,
+      userId: existingUser._id,
+    };
   }
 
   async logout() {

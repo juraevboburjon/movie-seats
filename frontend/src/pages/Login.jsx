@@ -24,7 +24,13 @@ function Login() {
     try {
       const res = await axios.post(`${host}/api/auth/login`, formData);
       if (res && res.data) {
-        login(formData.email, res.data.role, res.data.token);
+        login(
+          formData.email,
+          res.data.role,
+          res.data.token,
+          res.data.userName,
+          res.data.userId
+        );
         navigate("/");
       }
       console.log(res);

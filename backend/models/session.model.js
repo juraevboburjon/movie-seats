@@ -8,7 +8,17 @@ const sessionModel = new Schema({
   },
   cinemaHall: { type: String, required: true },
   startTime: { type: Date, required: true },
-  seats: { type: Number, required: true, default: 40 },
+  seatLegth: { type: Number, default: 40 },
+  seats: [
+    {
+      seatNumber: { type: String, required: true },
+      status: {
+        type: String,
+        enum: ["available", "booked"],
+        default: "available",
+      },
+    },
+  ],
   city: { type: String, required: true },
 });
 
