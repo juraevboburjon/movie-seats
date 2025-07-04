@@ -15,6 +15,11 @@ class SessionService {
     const session = await sessionModel.findById(id).populate("movieId");
     return session;
   }
+
+  async delete(id) {
+    const session = await sessionModel.findByIdAndDelete(id);
+    return { session, message: "Session deleted succesfully" };
+  }
 }
 
 export default new SessionService();

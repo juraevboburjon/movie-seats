@@ -58,6 +58,16 @@ class SessionController {
       res.status(500).json({ message: error.message });
     }
   }
+
+  async deleteSession(req, res) {
+    try {
+      const id = req.params.id;
+      const session = await sessionService.delete(id);
+      res.status(200).json(session);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
 }
 
 export default new SessionController();

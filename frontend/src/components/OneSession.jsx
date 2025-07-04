@@ -3,7 +3,7 @@ import { FaClock, FaCalendarAlt, FaHourglassStart } from "react-icons/fa";
 import { IoLocation } from "react-icons/io5";
 import { MdEventSeat } from "react-icons/md";
 
-function OneSession({ session }) {
+function OneSession({ session, role, handleDelete }) {
   if (!session || !session.movieId) {
     return <div>Загрузка...</div>;
   }
@@ -16,6 +16,7 @@ function OneSession({ session }) {
     const minutes = String(date.getMinutes()).padStart(2, "0");
     return `${day}.${month}.${year}, ${hours}:${minutes}`;
   };
+
   return (
     <div className="container grid grid-cols-2 px-35">
       <div className="h-[450px] w-[320px]">
@@ -56,6 +57,9 @@ function OneSession({ session }) {
             select seat
           </button>
         </Link>
+        {role === "admin" && (
+          <button onClick={() => handleDelete(session._id)}>delete</button>
+        )}
       </div>
     </div>
   );
