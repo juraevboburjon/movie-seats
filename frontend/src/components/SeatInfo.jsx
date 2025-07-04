@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import seatImg from "../assets/seat.png";
 import bookedSeat from "../assets/seatRed.png";
-function SeatInfo({ seats, selectedSeat }) {
+function SeatInfo({ selectedSeat, sessionId }) {
   console.log(selectedSeat);
   return (
     <>
@@ -17,6 +18,11 @@ function SeatInfo({ seats, selectedSeat }) {
             <p>Seat number:{selectedSeat.seatNumber}</p>
             <p>Seat status{selectedSeat.status}</p>
             <p>price : 17000won</p>
+            <Link
+              to={`/booking/${sessionId}/${selectedSeat.seatNumber}/payment`}
+            >
+              <button>결제히가</button>
+            </Link>
           </div>
         ) : (
           <div className="">

@@ -18,6 +18,7 @@ import MoviePage from "./pages/MoviePage";
 import CreateSession from "./pages/CreateSession";
 import OneSession from "./pages/Session";
 import SelectSeat from "./pages/SelectSeat";
+import Payment from "./pages/Payment";
 
 function App() {
   const routes = createBrowserRouter(
@@ -32,6 +33,10 @@ function App() {
         <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="/booking/:id" element={<OneSession />} />
         <Route path="/booking/:sessionId/seats" element={<SelectSeat />} />
+        <Route
+          path="/booking/:sessionId/:seatNumber/payment"
+          element={<Payment />}
+        />
 
         <Route path="*" element={<NotFound />} />
         <Route

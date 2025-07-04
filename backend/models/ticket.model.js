@@ -2,6 +2,10 @@ import mongoose, { Schema, model } from "mongoose";
 
 const ticketModel = new Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  userName: {
+    type: String,
+    required: true,
+  },
   sessionId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Session",
@@ -10,7 +14,7 @@ const ticketModel = new Schema({
   seatNumber: { type: String, required: true },
   status: {
     type: String,
-    enum: ["booked", "cancelled"],
+    enum: ["booked", "pending"],
     default: "booked",
   },
 });
