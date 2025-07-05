@@ -25,6 +25,7 @@ function BookingTable() {
         <div className="px-4 py-2 border rounded" key={key}>
           <Link to={`/booking/${session._id}`}>
             <div className="w-50">
+              <p className="font-bold text-xl">{session.movieId.title}</p>
               <p className="font-bold">{session.cinemaHall}</p>
               <p>{session.city}</p>
             </div>

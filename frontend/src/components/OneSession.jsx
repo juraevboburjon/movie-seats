@@ -44,7 +44,7 @@ function OneSession({ session, role, handleDelete }) {
         </div>
         <div className="flex items-center gap-3 mb-4">
           <MdEventSeat className="flex" />
-          <p className="font-bold">{session.seatLegth}</p>
+          <p className="font-bold">{session.seatLength}</p>
         </div>
         <div className="flex items-center gap-3">
           <IoLocation className="flex" />

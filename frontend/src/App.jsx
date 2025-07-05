@@ -19,6 +19,7 @@ import CreateSession from "./pages/CreateSession";
 import OneSession from "./pages/Session";
 import SelectSeat from "./pages/SelectSeat";
 import Payment from "./pages/Payment";
+import Ticket from "./pages/Ticket";
 
 function App() {
   const routes = createBrowserRouter(
@@ -33,6 +34,7 @@ function App() {
         <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="/booking/:id" element={<OneSession />} />
         <Route path="/booking/:sessionId/seats" element={<SelectSeat />} />
+        <Route path="/ticket/:ticketId/" element={<Ticket />} />
         <Route
           path="/booking/:sessionId/:seatNumber/payment"
           element={<Payment />}

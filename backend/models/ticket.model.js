@@ -11,7 +11,15 @@ const ticketModel = new Schema({
     ref: "Session",
     required: true,
   },
-  seatNumber: { type: String, required: true },
+  // seatNumber: {
+  //   type: String,
+  //   required: true,
+  // },
+  seat: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Seat",
+    required: true,
+  },
   status: {
     type: String,
     enum: ["booked", "pending"],

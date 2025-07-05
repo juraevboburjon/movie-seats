@@ -7,7 +7,10 @@ class TicketService {
   }
 
   async oneTicket(ticketId) {
-    const ticket = await ticketModel.findById(ticketId);
+    const ticket = await ticketModel
+      .findById(ticketId)
+      .populate("seat")
+      .populate("sessionId");
     return ticket;
   }
 }

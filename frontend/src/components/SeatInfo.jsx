@@ -15,20 +15,30 @@ function SeatInfo({ selectedSeat, sessionId }) {
         </div>
         {selectedSeat ? (
           <div className="">
-            <p>Seat number:{selectedSeat.seatNumber}</p>
-            <p>Seat status{selectedSeat.status}</p>
-            <p>price : 17000won</p>
+            <p>
+              Seat number:{" "}
+              <span className="font-bold">{selectedSeat.seatNumber}</span>
+            </p>
+            <p>
+              Seat status:{" "}
+              <span className="font-bold">{selectedSeat.status}</span>
+            </p>
+            <p>
+              price : <span className="font-bold">30000won</span>
+            </p>
             <Link
               to={`/booking/${sessionId}/${selectedSeat.seatNumber}/payment`}
             >
-              <button>결제히가</button>
+              <button className="mt-6 bg-red-800 px-6 py-2 rounded-3xl cursor-pointer text-2xl text-white">
+                결제히가
+              </button>
             </Link>
           </div>
         ) : (
           <div className="">
-            <p>select seat</p>
-            <p>select seat</p>
-            <p>price : select seat</p>
+            <p>Select seat</p>
+            <p>Select seat</p>
+            <p>Price : select seat</p>
           </div>
         )}
       </div>
