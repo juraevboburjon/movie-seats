@@ -1,29 +1,22 @@
-import mongoose from "mongoose";
-import sessionModel from "../models/session.model.js";
+import seatsModel from "../models/seats.model.js";
 import ticketService from "../service/ticket.service.js";
 
 class TicketController {
   async create(req, res) {
     try {
-      const { userId, userName, sessionId, seatNumber, status } = req.body;
+      const { userName, userId, sessionId, seatNumber, status } = req.body;
+      const seatDoc = await seatsModel.findOne({ sessionId, seatNumber });
+      if (!seatDoc) {
+        return res.status(404).json({ message: "Место не найдено" });
+      }
 
       const ticket = await ticketService.create({
-        userId,
         userName,
+        userId,
         sessionId,
-        seatNumber,
+        seat: seatDoc._id,
         status,
       });
-
-      // const sessionObjectId = new mongoose.Types.ObjectId(sessionId);
-
-      // const updateResult = await sessionModel.updateOne(
-      //   { _id: sessionObjectId, "seats.seatNumber": seatNumber },
-      //   { $set: { "seats.$.status": "booked" } }
-      // );
-
-      // console.log("Update result:", updateResult);
-
       res.status(200).json(ticket);
     } catch (error) {
       console.error("Error creating ticket:", error);

@@ -8,17 +8,15 @@ const sessionModel = new Schema({
   },
   cinemaHall: { type: String, required: true },
   startTime: { type: Date, required: true },
-  seatLegth: { type: Number, default: 40 },
-  seats: [
-    {
-      seatNumber: { type: String, required: true },
-      status: {
-        type: String,
-        enum: ["available", "booked"],
-        default: "available",
-      },
-    },
-  ],
+  seatLength: { type: Number, default: 40 },
+  // seats: [
+  //   {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: "Seat",
+  //     required: true,
+  //   },
+  // ],
+
   city: { type: String, required: true },
 });
 

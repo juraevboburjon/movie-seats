@@ -7,7 +7,8 @@ class SessionService {
   }
 
   async getAllSession() {
-    const allSession = await sessionModel.find();
+    const allSession = await sessionModel.find().populate("movieId");
+    // .populate("seats");
     return allSession;
   }
 
