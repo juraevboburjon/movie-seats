@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import TicketComponent from "../components/TicketComponent";
 
 function Ticket() {
   const host = import.meta.env.VITE_BACKEND_HOST;
   const { ticketId } = useParams();
-  const [ticket, setTicket] = useState();
+  const [ticket, setTicket] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,8 +21,15 @@ function Ticket() {
     };
     fetchData();
   }, [host, ticketId]);
+  if (!ticket) {
+    return <div>Загрузка...</div>;
+  }
   console.log(ticket);
-  return <Layout></Layout>;
+  return (
+    <Layout>
+      <TicketComponent ticket={ticket} />
+    </Layout>
+  );
 }
 
 export default Ticket;
