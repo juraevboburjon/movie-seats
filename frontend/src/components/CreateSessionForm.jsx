@@ -43,23 +43,23 @@ function CreateSessionForm() {
   // console.log(typeof session.city);
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-4">
-      <div className="grid-rows-1 px-20 gap-5 md:grid grid-cols-2 w-full">
-        <div className="grid grid-rows-1 gap-4">
+    <form onSubmit={onSubmit} className="w-full mt-6">
+      <div className="px-20 w-full">
+        <div className="grid w-full gap-y-6">
           <input
             type="text"
             id="movieId"
             name="movieId"
             onChange={inputHandle}
             placeholder="Movie title"
-            className="border p-2 rounded"
+            className="border p-2 rounded w-full"
           />
           <select
             id="city"
             name="city"
             onChange={inputHandle}
             value={session.city}
-            className="border p-2 rounded"
+            className="border p-2 rounded w-full"
           >
             <option value="">select city</option>
             {cities.map((city) => (
@@ -75,7 +75,7 @@ function CreateSessionForm() {
             onChange={inputHandle}
             min="1"
             placeholder="Cinema Hall"
-            className="border p-2 rounded"
+            className="border p-2 rounded w-full"
           />
           <input
             type="number"
@@ -83,7 +83,7 @@ function CreateSessionForm() {
             name="seats"
             onChange={inputHandle}
             placeholder="Hall seats"
-            className="border p-2 rounded"
+            className="border p-2 rounded w-full"
           />
           <input
             type="datetime-local"
@@ -91,11 +91,11 @@ function CreateSessionForm() {
             name="startTime"
             onChange={inputHandle}
             placeholder="Session Time"
-            className="border p-2 rounded"
+            className="border p-2 rounded w-full"
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
+            className="bg-red-800 text-white p-2 rounded cursor-pointer transition-all hover:bg-red-900 w-full"
           >
             Publish
           </button>

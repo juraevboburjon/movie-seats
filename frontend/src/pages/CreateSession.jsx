@@ -1,11 +1,11 @@
-import React from "react";
 import CreateSessionForm from "../components/CreateSessionForm";
+import Layout from "../components/Layout";
 
 function CreateSession() {
   return (
-    <div>
+    <Layout>
       <CreateSessionForm />
-    </div>
+    </Layout>
   );
 }
 

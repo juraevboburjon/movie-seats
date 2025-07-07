@@ -101,7 +101,7 @@ function CretaeMovieForm() {
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
+            className="bg-red-800 text-white cursor-pointer transition-all p-2 rounded hover:bg-red-900"
           >
             Publish
           </button>
