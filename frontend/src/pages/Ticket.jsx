@@ -27,7 +27,9 @@ function Ticket() {
   console.log(ticket);
   return (
     <Layout>
-      <TicketComponent ticket={ticket} />
+      <div className="h-screen">
+        <TicketComponent ticket={ticket} />
+      </div>
     </Layout>
   );
 }
