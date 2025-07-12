@@ -7,18 +7,18 @@ function EventBanner() {
   const events = [
     {
       id: 1,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/Event/c4260cb5c7474862a13fb961c4647f1e.jpg",
+      title: "무명",
+      img: "https://cf2.lottecinema.co.kr/lotte_image/2025/Nameless/Nameless_9801803.png",
     },
     {
       id: 2,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/Event/c4260cb5c7474862a13fb961c4647f1e.jpg",
+      title: "극장판 도라에몽: 진구의 그림이야기",
+      img: "https://cf2.lottecinema.co.kr/lotte_image/2025/Doraemon/Doraemon_980180.png",
     },
     {
       id: 3,
-      title: "interstellar",
-      img: "https://cf.lottecinema.co.kr//Media/Event/c4260cb5c7474862a13fb961c4647f1e.jpg",
+      title: "킹 오브 킹스",
+      img: "https://cf2.lottecinema.co.kr/lotte_image/2025/KingOfKings/KingOfKings_980180.jpg",
     },
   ];
   const settings = {

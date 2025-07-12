@@ -17,7 +17,7 @@ function HomePage() {
         </div>
       </div>
       <MovieTable />
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-8">
         <BookingTable />
       </div>
     </Layout>

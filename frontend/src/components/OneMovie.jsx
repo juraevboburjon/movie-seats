@@ -44,7 +44,7 @@ function OneMovie({ movie, role, handleDelete }) {
           </div>
 
           <div className="flex mt-8 gap-x-6">
-            <Link>
+            <Link to={"/booking"}>
               <p className="bg-red-800 text-white px-6 py-2 rounded-3xl text-2xl cursor-pointer">
                 예매하기
               </p>
