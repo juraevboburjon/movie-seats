@@ -1,3 +1,4 @@
+import BookingTable from "../components/BookingTable";
 import EventBanner from "../components/EventBanner";
 import Layout from "../components/Layout";
 import MovieTable from "../components/MovieTable";
@@ -16,6 +17,9 @@ function HomePage() {
         </div>
       </div>
       <MovieTable />
+      <div className="flex justify-center">
+        <BookingTable />
+      </div>
     </Layout>
   );
 }
