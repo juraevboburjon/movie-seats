@@ -16,11 +16,11 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
-app.use("/api/auth", authRoute);
-app.use("/api/movie", movieRoute);
-app.use("/api/session", sessionRoute);
-app.use("/api/seats", seatsRoute);
-app.use("/api/ticket", ticketRoute);
+app.use("api/auth", authRoute);
+app.use("api/movie", movieRoute);
+app.use("api/session", sessionRoute);
+app.use("api/seats", seatsRoute);
+app.use("api/ticket", ticketRoute);
 
 const startapp = async () => {
   try {
