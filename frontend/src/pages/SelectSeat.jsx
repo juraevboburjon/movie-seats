@@ -22,7 +22,6 @@ function SelectSeat() {
     };
     fetchData();
   }, [host, sessionId]);
-  console.log(seats);
   return (
     <Layout>
       <div className=" mt-30 px-30">

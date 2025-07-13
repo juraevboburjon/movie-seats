@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import OneMovie from "../components/OneMovie";
 import { useAuth } from "../service/AuthService";
 import MovieTable from "../components/MovieTable";
+import Spinner from "../components/Spinner";
 
 function MoviePage() {
   const host = import.meta.env.VITE_BACKEND_HOST;
@@ -19,7 +20,6 @@ function MoviePage() {
       try {
         const res = await axios.get(`${host}/api/movie/${id}`);
         setMovie(res.data);
-        console.log(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -41,7 +41,7 @@ function MoviePage() {
   };
 
   if (!movie) {
-    return <div>Загрузка...</div>;
+    return <Spinner />;
   }
   return (
     <Layout>

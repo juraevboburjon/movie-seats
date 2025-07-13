@@ -30,3 +30,11 @@
 .slick-track {
   position: relative;
 }
+
+/* Spinner.css */
+.delay-1 {
+  animation-delay: -0.3s;
+}
+.delay-2 {
+  animation-delay: -0.5s;
+}

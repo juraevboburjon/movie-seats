@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import seatImg from "../assets/seat.png";
 import bookedSeat from "../assets/seatRed.png";
 function SeatInfo({ selectedSeat, sessionId }) {
-  console.log(selectedSeat);
   return (
     <>
       <div className="flex flex-col items-center">

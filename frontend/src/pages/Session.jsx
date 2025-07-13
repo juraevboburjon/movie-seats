@@ -13,8 +13,6 @@ function Session() {
   const [session, setSession] = useState(null);
   const { role, token } = useAuth();
   const navigate = useNavigate();
-  console.log(session);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
