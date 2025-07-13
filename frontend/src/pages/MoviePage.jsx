@@ -20,7 +20,6 @@ function MoviePage() {
       try {
         const res = await axios.get(`${host}/api/movie/${id}`);
         setMovie(res.data);
-        console.log(res.data);
       } catch (error) {
         console.log(error);
       }

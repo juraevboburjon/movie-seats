@@ -21,7 +21,6 @@ function CreateSessionForm() {
   const inputHandle = (e) => {
     const { name, value } = e.target;
     setSession({ ...session, [name]: value });
-    // console.log(user);
   };
 
   const onSubmit = async (e) => {
@@ -33,14 +32,11 @@ function CreateSessionForm() {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      console.log("movie created succ", res);
       navigate("/");
     } catch (error) {
       console.error(error);
     }
   };
-  // console.log(typeof session.city);
 
   return (
     <form onSubmit={onSubmit} className="w-full mt-6">

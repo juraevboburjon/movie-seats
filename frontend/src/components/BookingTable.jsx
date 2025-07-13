@@ -15,7 +15,6 @@ function BookingTable() {
         setLoading(true);
         const res = await axios.get(`${host}/api/session/all`);
         setSessions(res.data);
-        console.log(res);
       } catch (error) {
         console.log(error);
       } finally {

@@ -37,7 +37,7 @@ const MovieTable = () => {
                   src={movie.posterUrl}
                   alt={movie.title}
                 />
-                <p>{movie.title}</p>
+                <p className="text-center mt-2">{movie.title}</p>
               </div>
             </Link>
           ))}

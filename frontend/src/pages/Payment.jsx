@@ -12,13 +12,10 @@ function Payment() {
 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  //   console.log(userName);
-  console.log(seatNumber);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      //   const seatStatus = await
       const res = await axios.post(`${host}/api/ticket/buy`, {
         userId,
         userName,
@@ -33,7 +30,6 @@ function Payment() {
 
       //   await axios.get(`${host}/api/session/${sessionId}`);
       navigate(`/ticket/${res.data._id}`);
-      console.log("movie created succ", res);
     } catch (error) {
       console.log(error);
     }
