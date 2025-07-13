@@ -38,7 +38,7 @@ function Payment() {
       <PaymentForm
         handleSubmit={handleSubmit}
         loading={loading}
-        userId={userName}
+        userName={userName}
       />
     </Layout>
   );
