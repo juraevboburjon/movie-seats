@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import { FaClock, FaCalendarAlt, FaHourglassStart } from "react-icons/fa";
 import { IoLocation } from "react-icons/io5";
 import { MdEventSeat } from "react-icons/md";
+import Spinner from "./Spinner";
 
 function OneSession({ session, role, handleDelete }) {
   if (!session || !session.movieId) {
-    return <div>Загрузка...</div>;
+    return <Spinner />;
   }
   const formatDate = (isoString) => {
     const date = new Date(isoString);

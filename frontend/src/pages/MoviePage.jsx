@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import OneMovie from "../components/OneMovie";
 import { useAuth } from "../service/AuthService";
 import MovieTable from "../components/MovieTable";
+import Spinner from "../components/Spinner";
 
 function MoviePage() {
   const host = import.meta.env.VITE_BACKEND_HOST;
@@ -41,7 +42,7 @@ function MoviePage() {
   };
 
   if (!movie) {
-    return <div>Загрузка...</div>;
+    return <Spinner />;
   }
   return (
     <Layout>

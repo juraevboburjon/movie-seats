@@ -13,7 +13,7 @@ function TicketComponent({ ticket }) {
   return (
     <>
       <div className="flex justify-center items-center h-full">
-        <div className="flex flex-col shadow-xl p-9">
+        <div className="flex flex-col shadow-xl border border-gray-200 p-9">
           <div className="flex justify-center text-4xl font-bold mb-14">
             MovieSeats
           </div>

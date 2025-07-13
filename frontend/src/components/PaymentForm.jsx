@@ -7,7 +7,7 @@ function PaymentForm({ handleSubmit, loading }) {
   const [cvc, setCvc] = useState("");
   return (
     <>
-      <div className="max-w-sm mx-auto mt-8 border rounded p-6 shadow">
+      <div className="max-w-sm mx-auto mt-8 border-black rounded p-6 shadow">
         <h2 className="text-xl font-bold mb-4">Payment</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <label>
