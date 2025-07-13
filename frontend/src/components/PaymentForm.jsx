@@ -6,11 +6,13 @@ function PaymentForm({ handleSubmit, loading, userName }) {
   const [exp, setExp] = useState("");
   const [cvc, setCvc] = useState("");
   if (!userName) {
-    <>
-      <h1 className="text-center font-bold mt-50">
-        Please Login or Register...
-      </h1>
-    </>;
+    return (
+      <>
+        <h1 className="text-center font-bold mt-50">
+          Please Login or Register...
+        </h1>
+      </>
+    );
   }
   return (
     <div className="max-w-sm mx-auto mt-8 border-black rounded p-6 shadow">
@@ -36,7 +38,7 @@ function PaymentForm({ handleSubmit, loading, userName }) {
             onChange={(e) => setName(e.target.value)}
             required
             className="border p-2 rounded w-full"
-            placeholder="IVAN IVANOV"
+            placeholder="YOUR NAME"
           />
         </label>
         <div className="flex gap-2">
