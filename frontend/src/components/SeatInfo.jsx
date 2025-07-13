@@ -28,9 +28,15 @@ function SeatInfo({ selectedSeat, sessionId }) {
             <Link
               to={`/booking/${sessionId}/${selectedSeat.seatNumber}/payment`}
             >
-              <button className="mt-6 bg-red-800 px-6 py-2 rounded-3xl cursor-pointer text-2xl text-white">
-                결제히가
-              </button>
+              {selectedSeat.status === "available" ? (
+                <button className="mt-6 bg-red-800 px-6 py-2 rounded-3xl cursor-pointer text-2xl text-white">
+                  결제히가
+                </button>
+              ) : (
+                <p className="mt-4 font-bold">
+                  이 차리는 결제할 수 없습니다...
+                </p>
+              )}
             </Link>
           </div>
         ) : (

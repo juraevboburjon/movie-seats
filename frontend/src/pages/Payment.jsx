@@ -27,22 +27,19 @@ function Payment() {
       await axios.patch(`${host}/api/seats/${sessionId}/${seatNumber}`, {
         status: "booked",
       });
-
-      //   await axios.get(`${host}/api/session/${sessionId}`);
       navigate(`/ticket/${res.data._id}`);
     } catch (error) {
       console.log(error);
     }
-    // setTimeout(() => {
-    //   setLoading(false);
-    //   alert("Оплата прошла успешно (фейк)!");
-    //   if (onSuccess) onSuccess();
-    // }, 1200);
   };
 
   return (
     <Layout>
-      <PaymentForm handleSubmit={handleSubmit} loading={loading} />
+      <PaymentForm
+        handleSubmit={handleSubmit}
+        loading={loading}
+        userName={userName}
+      />
     </Layout>
   );
 }
