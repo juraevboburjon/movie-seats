@@ -39,7 +39,7 @@ function TicketComponent({ ticket }) {
             Username: <span className="font-bold"> {ticket.userName}</span>
           </p>
           <p className="mt-8">
-            all: <span className="text-xl font-bold">17000</span>
+            All: <span className="text-xl font-bold">30000</span>
           </p>
         </div>
       </div>
