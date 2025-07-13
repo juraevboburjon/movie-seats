@@ -32,6 +32,7 @@ function CreateSessionForm() {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log(res);
       navigate("/");
     } catch (error) {
       console.error(error);

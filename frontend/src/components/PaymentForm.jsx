@@ -1,11 +1,17 @@
 import { useState } from "react";
 
-function PaymentForm({ handleSubmit, loading }) {
+function PaymentForm({ handleSubmit, loading, userName }) {
   const [cardNumber, setCardNumber] = useState("");
   const [name, setName] = useState("");
   const [exp, setExp] = useState("");
   const [cvc, setCvc] = useState("");
-  return (
+  return !userName ? (
+    <>
+      <h1 className="text-center font-bold mt-50">
+        Please Login or Register...
+      </h1>
+    </>
+  ) : (
     <>
       <div className="max-w-sm mx-auto mt-8 border-black rounded p-6 shadow">
         <h2 className="text-xl font-bold mb-4">Payment</h2>
